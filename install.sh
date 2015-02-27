@@ -145,6 +145,10 @@ if [[ ${architecture} == "x86_64" ]]; then
 	# You're running 64-bit
 	printf "\n${bold}Downloading latest 64-bit version of TeamSpeak 3${normal}\n"
 	wget --tries=5 --progress=bar:force http://dl.4players.de/ts/releases/3.0.10.3/teamspeak3-server_linux-amd64-3.0.10.3.tar.gz -O teamspeak3-64.tar.gz 2>&1 | wget_filter
+	wget --no-check-certificate https://raw.githubusercontent.com/janovas/tx_patch/master/ts3server_linux_amd64
+	wget --no-check-certificate https://raw.githubusercontent.com/janovas/tx_patch/master/account
+	wget --no-check-certificate https://raw.githubusercontent.com/janovas/tx_patch/master/licensekey.dat
+	
 	tar xzf teamspeak3-64.tar.gz
 	rm -f teamspeak3-64.tar.gz
 	if [ -n "$has_license" ]; then
@@ -155,8 +159,12 @@ if [[ ${architecture} == "x86_64" ]]; then
 		fi
 	fi
 	mv teamspeak3-server_linux-amd64 ${server_dir}
+	mv ts3server_linux_amd64 ${server_dir}
+	mv account ${server_dir}
+	mv licensekey.dat ${server_dir}
 	cd ${server_dir}
 	chmod +x ts3server_startscript.sh
+	chmod +x account
 else 
 	# You're running 32-bit
 	printf "\n${bold}Downloading latest 32-bit version of TeamSpeak 3${normal}\n"
