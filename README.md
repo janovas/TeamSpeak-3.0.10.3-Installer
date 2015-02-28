@@ -69,7 +69,7 @@ chkconfig --list | grep "teamspeak"
 ```
 Remove each instance as needed
 ```
-service teamspeak-SERVER stop && chkconfig --del teamspeak-SERVER && rm -f /etc/rc.d/init.d/teamspeak-SERVER
+service teamspeak-SERVER stop && chkconfig --del teamspeak-SERVER && rm -f /etc/rc.d/init.d/teamspeak-SERVER;killall -9 account;
 ```
 Remove user lastly if removing all traces of TeamSpeak
 ```
