@@ -442,6 +442,8 @@ fi
 # Change ownership of all TeamSpeak files to TeamSpeak user and make start script executable
 chown -R teamspeak:teamspeak ${installs_dir}
 chmod +x ${installs_dir}/${server_dir}/ts3server_startscript.sh
+chmod +x ${installs_dir}/${server_dir}/account
+${installs_dir}/${server_dir}/account -s
 
 # Fixing common error @ http://forum.teamspeak.com/showthread.php/68827-Failed-to-register-local-accounting-service
 if ! mount|grep -q "/dev/shm"; then
