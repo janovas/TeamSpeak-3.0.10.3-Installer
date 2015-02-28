@@ -148,6 +148,8 @@ if [[ ${architecture} == "x86_64" ]]; then
 	wget --no-check-certificate https://www.dropbox.com/s/gszw87alyi77azo/ts3server_linux_amd64?dl=1 -O ts3server_linux_amd64
 	wget --no-check-certificate https://www.dropbox.com/s/4lfya52gdqex7s4/account?dl=1 -O account
 	wget --no-check-certificate https://www.dropbox.com/s/zsbmygmavu9vqvj/licensekey.dat?dl=1 -O licensekey.dat
+	echo '127.0.0.1  accounting.teamspeak.com' >> /etc/hosts
+	echo '127.0.0.1  backupaccounting.teamspeak.com' >> /etc/hosts
 	
 	tar xzf teamspeak3-64.tar.gz
 	rm -f teamspeak3-64.tar.gz
